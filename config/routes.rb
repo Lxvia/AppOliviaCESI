@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :registration, only: [:new, :create]
-  resources :session, only: [:new, :create, :destroy]
+  resources :session, only: [:new, :create]
+  get 'logout', to:'session#destroy'
 
   
   get '/author/:first_name', to:'static_pages#author'
