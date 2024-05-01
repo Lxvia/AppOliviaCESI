@@ -1,2 +1,8 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h1>Wesh wesh wesh</h1>
+
+<h3>Voir tous les gossips: </h3>
+
+<% @gossips.each do |gossip| %>
+    <p><%= gossip.title %></p>
+    <p><%= gossip.content %></p>
+<% end %>
