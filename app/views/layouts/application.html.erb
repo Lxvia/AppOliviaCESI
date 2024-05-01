@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <a href="/logout">Log Out</a>
+
+
+        <% else %>
+        <a href="/registration/new">Create account</a></h2>
+        <a href="/session/new">Login</a></h2>
+        <% end %>
+
     <%= yield %>
   </body>
 </html>
