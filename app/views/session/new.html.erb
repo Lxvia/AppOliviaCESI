@@ -1,0 +1,19 @@
+<h2> Log In </h2>
+
+<%= form_with url: session_index_path, local: true do |f|%>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email, class:"form-control", placeholder: "example@email.com" %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password, class:"form-control", placeholder: "password1234" %>
+  </div>
+
+  <div>
+    <%= f.submit "Log in" %>
+  </div>
+
+<% end %>

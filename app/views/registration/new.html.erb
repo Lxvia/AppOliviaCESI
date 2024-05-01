@@ -1,0 +1,52 @@
+<h1>Sign Up</h1>
+
+<div>
+    <%= form_with model: @user, url: registration_index_path, local: true do |f|%>
+        <div>
+            <div>
+                <div>
+                    <%= f.label :first_name %>
+                    <%= f.text_field :first_name, class:"form-control", placeholder: "Gossip" %>
+                </div>
+                <div>
+                    <%= f.label :last_name %>
+                    <%= f.text_field :last_name, class:"form-control", placeholder: "Girl" %>
+                </div>
+                <div>
+                    <%= f.label :age %>
+                    <%= f.text_field :age, class:"form-control", placeholder: "25" %>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <%= f.label :description %>
+            <%= f.text_field :description, class:"form-control", placeholder: "Describe yourself" %>
+        </div>
+
+        <div class="mb-3" style="width: 30em">
+            <%= f.label :email %>
+            <%= f.text_field :email, class:"form-control", placeholder: "example@email.com" %>
+        </div>
+
+        <div>
+            <%= f.label :city %>
+            <%= f.text_field :city, class:"form-control", placeholder: "New York City" %>
+        </div>
+
+        <div>
+            <%= f.label :password %>
+            <%= f.password_field :password, class:"form-control", placeholder: "password1234" %>
+        </div>
+
+        <div>
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class:"form-control", placeholder: "password1234" %>
+        </div>
+
+        <div>
+            <%= f.submit "register" %>
+        </div>
+    <% end %>
+    
+</div>
