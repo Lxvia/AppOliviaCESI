@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :gossip do 
     resources :comments
   end
+  resources :registration, only: [:new, :create]
+  resources :session, only: [:new, :create, :destroy]
+
+  
   get '/author/:first_name', to:'static_pages#author'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
