@@ -1,5 +1,13 @@
 <h1>Wesh wesh wesh</h1>
+<% if logged_in? %>
+        <h1 id="home_title" class="text-center"> Hello <%= current_user.first_name %> ! Welcome to The Gossip Project </h1>
+    <% else %>
+        <h1 id="home_title" class="text-center"> Hello stranger ! Welcome to The Gossip Project </h1>
+    <% end %>
 
+<h2> Create account <a href="/registration/new">here</a></h2>
+<h2> Already have an account ? <a href="/session/new">Sign in</a></h2>
+<h2 class="text-center"> You can submit a gossip <a href="/gossip/new">here</a></h2>
 <h3>Voir tous les gossips: </h3>
 
 <% @gossips.each do |gossip| %>
@@ -7,3 +15,4 @@
     <p><%= gossip.content %></p>
     <a href="/gossip/<%= gossip.id %>">Voir le gossip</a>
 <% end %>
+
