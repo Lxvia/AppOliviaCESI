@@ -1,3 +1,7 @@
 <h1>Page du gossip  : <%= @gossip.title %></h1>
 <p> <%= @gossip.content %> <p></p>
-<p> Author profile : <a href="/author/<%= @gossip.user.first_name %>"><%= @gossip.user.first_name %>
+<p> Author profile : <a href="/author/<%= @gossip.user.first_name %>"><%= @gossip.user.first_name %> <br>
+
+<% if @gossip.user == current_user %>
+    <a class="text-center" href="<%= edit_gossip_path(@gossip.id) %>">Edit Gossip</a><br><br>
+<% end %>
