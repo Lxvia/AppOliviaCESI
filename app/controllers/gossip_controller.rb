@@ -40,4 +40,10 @@ class GossipController < ApplicationController
             flash[:danger] = "Gossip not updated" 
         end
     end
+
+    def destroy
+        @gossip = Gossip.find(params[:id])
+        @gossip.destroy
+        redirect_to root_path
+    end
 end
