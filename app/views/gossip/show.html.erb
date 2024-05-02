@@ -4,4 +4,5 @@
 
 <% if @gossip.user == current_user %>
     <a class="text-center" href="<%= edit_gossip_path(@gossip.id) %>">Edit Gossip</a><br><br>
+    <%= button_to "Delete Gossip", gossip_path(@gossip), method: :delete, data: { confirm: "Are you sure?" }, class: "text-center" %>
 <% end %>
