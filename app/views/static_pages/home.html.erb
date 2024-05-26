@@ -1,16 +1,24 @@
-<h1>Wesh wesh wesh</h1>
+<div id="container">
+<section id="containerLeft">
 <% if logged_in? %>
-        <h1 id="home_title" class="text-center"> Hello <%= current_user.first_name %> ! Welcome to The Gossip Project </h1>
+        <h1 id="home_title" class="text-center"> Hello <%= current_user.first_name %> ! </h1>
+        <h2> Clique <a href="/gossip/new">ici</a> pour créer un gossip !</h2>
     <% else %>
-        <h1 id="home_title" class="text-center"> Hello stranger ! Welcome to The Gossip Project </h1>
+        <h1 id="home_title"> Hello, bienvenue sur ce superbe site ou tu peux poster et lire des gossips!  </h1>
+        <h2><a href="/session/new">Connecte toi</a> pour en créer un !</h2>
     <% end %>
 
-<h2 class="text-center bg-red-200"> You can submit a gossip <a href="/gossip/new">here</a></h2>
-<h3>Voir tous les gossips: </h3>
+    
+</section>
 
-<% @gossips.each do |gossip| %>
-    <p><%= gossip.title %></p>
-    <p><%= gossip.content %></p>
-    <a href="/gossip/<%= gossip.id %>">Voir le gossip</a>
-<% end %>
 
+<section id="containerRight"><h3>Tous les gossips: </h3>
+    <% @gossips.each do |gossip| %>
+        <div id="gossipCard" class="bg-green-200">
+        <p><b><%= gossip.title %></b></p>
+        <p><%= gossip.content %></p>
+        <a href="/gossip/<%= gossip.id %>">Voir le gossip</a>
+        </div>
+    <% end %>
+</section>
+</div>

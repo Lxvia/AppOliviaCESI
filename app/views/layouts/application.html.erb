@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <nav>
-  <% if logged_in? %>
-      <a href="/logout">Log Out</a>
-        <% else %>
-        <a href="/registration/new">Create account</a></h2>
-        <a href="/session/new">Login</a></h2>
-  <% end %>
-  <h1 class="text-center bg-red-200">Olivia</h1>
+  <nav id="navbar">
+    <div id="logo">
+      <h1><a href="/">AppOlivia</a></h1>
+    </div>
+    <div id="navlinks">
+      <% if logged_in? %>
+        <a href="/author/<%= current_user.first_name %>">Profil</a>
+        <a href="/logout">Se déconnecter</a>
+          <% else %>
+          <a href="/registration/new">Inscription</a></h2>
+          <a href="/session/new">Connexion</a></h2>
+      <% end %>
+    </div>
   </nav>
 
     <%= yield %>

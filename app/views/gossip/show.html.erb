@@ -1,8 +1,17 @@
-<h1>Page du gossip  : <%= @gossip.title %></h1>
-<p> <%= @gossip.content %> <p></p>
-<p> Author profile : <a href="/author/<%= @gossip.user.first_name %>"><%= @gossip.user.first_name %> <br>
+<div class="gossipPage">
+  <h1 class="gossipTitle">Page du gossip : <%= @gossip.title %></h1>
+  
+  <div class="gossipContent">
+    <p><%= @gossip.content %></p>
+    <p>Author profile : 
+      <a href="/author/<%= @gossip.user.first_name %>"><%= @gossip.user.first_name %></a>
+    </p>
+  </div>
 
-<% if @gossip.user == current_user %>
-    <a class="text-center" href="<%= edit_gossip_path(@gossip.id) %>">Edit Gossip</a><br><br>
-    <%= button_to "Delete Gossip", gossip_path(@gossip), method: :delete, data: { confirm: "Are you sure?" }, class: "text-center" %>
-<% end %>
+  <% if @gossip.user == current_user %>
+    <div class="gossipActions">
+      <a class="editGossip" href="<%= edit_gossip_path(@gossip.id) %>">Edit Gossip</a><br><br>
+      <%= button_to "Delete Gossip", gossip_path(@gossip), method: :delete, data: { confirm: "Are you sure?" }, class: "deleteGossip" %>
+    </div>
+  <% end %>
+</div>

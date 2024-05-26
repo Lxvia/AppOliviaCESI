@@ -9,7 +9,7 @@ class RegistrationController < ApplicationController
         @user_new.city = @city
 
         if @user_new.save!
-            redirect_to root_path
+            redirect_to new_session_path
         else
             puts "erreur"
         end

@@ -1,5 +1,8 @@
-<h2>This is the page of a gossip author</h2>
-<h5><%= @author.first_name %> <%= @author.last_name %></h5>
-        <p class="card-text">About me : <%= @author.description %></p>
-            <p class="card-text">Email adress : <%= @author.email %></p>
-            <p class="card-text">Age : <%= @author.age %>y.o</p>
+<div class="authorPage">
+  <h2>Page profil de : <%= @author.first_name %> <%= @author.last_name %></h2>
+  <div class="authorDescription">
+    <p><b>Biographie:</b> <%= @author.description %></p>
+    <p><b>Adresse email:</b> <%= @author.email %></p>
+    <p><b>Age:</b> <%= @author.age %> y.o</p>
+  </div>
+</div>
