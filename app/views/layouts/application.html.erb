@@ -7,12 +7,15 @@
     <%= csp_meta_tag %>
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'GOSSIP.png' %>
   </head>
 
   <body>
   <nav id="navbar">
-    <div id="logo">
-      <h1><a href="/">AppOlivia</a></h1>
+    <div id="logoDiv">
+      <%= link_to root_path do %>
+        <%= image_tag 'GOSSIP.png', alt: 'Logo', class: 'logo' %>
+      <% end %>
     </div>
     <div id="navlinks">
       <% if logged_in? %>
