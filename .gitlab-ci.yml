@@ -1,0 +1,44 @@
+image: ruby:3.2
+
+services:
+  - postgres:latest
+
+variables:
+  RAILS_ENV: "test"
+  DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/app_olivia_test"
+  HEROKU_APP_NAME: $HEROKU_APP_NAME
+
+before_script:
+  - apt-get update -qq && apt-get install -y nodejs yarn postgresql-client
+  - gem install bundler
+  - bundle install
+  - yarn install --frozen-lockfile
+
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  script:
+    - bundle exec rake db:create
+    - bundle exec rake db:migrate
+    - bundle exec rake test
+  artifacts:
+    paths:
+      - coverage/
+      - public/assets/
+      - public/packs/
+  cache:
+    paths:
+      - vendor/bundle
+      - node_modules/
+
+deploy:
+  stage: deploy
+  script:
+    - bundle exec rake assets:precompile
+    - heroku git:remote -a $HEROKU_APP_NAME
+    - git push heroku HEAD:master
+  only:
+    - main
